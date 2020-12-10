@@ -10,3 +10,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
     add_compile_definitions(project_options INTERFACE -ftime-trace)
   endif()
 endif()
+
+
+# add source directory
+add_subdirectory(src)
