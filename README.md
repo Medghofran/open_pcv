@@ -1,2 +1,2 @@
 # open_pcv
-This is a open source lighweight point cloud processing library
+This is an open-source lightweight point cloud processing library for computer vision applications.
