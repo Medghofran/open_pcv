@@ -11,6 +11,16 @@ if(CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
   endif()
 endif()
 
+# enable doxygen
+include(cmake/enable_doxygen.cmake)
+enable_doxygen()
+
+# global project options
+option(ENABLE_TESTS "Enable Test Builds" ON)
+
+if(ENABLE_TESTS)
+  add_subdirectory(tests)
+endif()
 
 # add source directory
 add_subdirectory(src)
