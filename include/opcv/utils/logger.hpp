@@ -27,32 +27,32 @@ public:
   ~logger() = default;
 
   template<typename istring>
-  void logInfo(const istring &message) {
+  void logInfo(const istring &message) const {
     ostream_ << ccolors::green << "INFO:: " << ccolors::reset << message << "\n";
   }
 
   template<typename entity, typename istring>
-  void logInfo(const istring &message) {
+  void logInfo(const istring &message) const {
     ostream_ << ccolors::green << "INFO::" << ccolors::magenta << "[" << typeid(entity).name() << "]" << ccolors::reset << message << "\n";
   }
 
   template<typename istring>
-  void logWarning(const istring &message) {
+  void logWarning(const istring &message) const {
     ostream_ << ccolors::yellow << "INFO:: " << ccolors::reset << message << "\n";
   }
 
   template<typename entity, typename istring>
-  void logWarning(const istring &message) {
+  void logWarning(const istring &message) const {
     ostream_ << ccolors::yellow << "INFO::" << ccolors::magenta << "[" << typeid(entity).name() << "]" << ccolors::reset << message << "\n";
   }
 
   template<typename istring>
-  void logError(const istring &message) {
+  void logError(const istring &message) const {
     ostream_ << ccolors::red << "INFO:: " << ccolors::reset << message << "\n";
   }
 
   template<typename entity, typename istring>
-  void logError(const istring &message) {
+  void logError(const istring &message) const {
     ostream_ << ccolors::red << "INFO::" << ccolors::magenta << "[" << typeid(entity).name() << "]" << ccolors::reset << message << "\n";
   }
 };
