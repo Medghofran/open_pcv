@@ -1,7 +1,8 @@
 #include <iostream>
 #include <opcv/utils/timeblock.hpp>
 #include <opcv/utils/logger.hpp>
-
+#include <opcv/utils/events.hpp>
+#include <opcv/utils/window_handler.hpp>
 
 void empty_procedure() {
   // do some heinous shit here
@@ -14,7 +15,6 @@ int main() {
       ;
   }
 
-
   opcv::utils::logger logger(std::cout);
   logger.logInfo("working like potatoes");
   logger.logInfo<short>("still working like potatoes");
@@ -24,5 +24,22 @@ int main() {
 
   logger.logError("working like potatoes");
   logger.logError<short>("still working like potatoes");
-  std::cout << "working" << std::endl;
+
+  // define a custom delegate
+  delegate(void, execute, (), ());
+  event(execute, onTimeExecute);
+  onTimeExecute += [=]() {
+    logger.logInfo("Triggered from inside the event");
+  };
+
+
+  auto instance = opcv::utils::window_handler::getInstance();
+  auto win = instance.createWindow(600, 800, "penis brain");
+  instance.show(win);
+  
+  instance.closeWindow(win);
+
+  // invoke the event
+  onTimeExecute.invoke();
 }
+

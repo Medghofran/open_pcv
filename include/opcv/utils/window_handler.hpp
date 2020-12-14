@@ -77,6 +77,9 @@ public:
 
   void closeWindow(window &);
   void closeAllWindows();
+
+  void show(window &);
+  void hide(window &);
 };
 
 }// namespace opcv::utils
