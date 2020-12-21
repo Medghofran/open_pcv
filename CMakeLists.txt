@@ -33,6 +33,10 @@ if(ENABLE_TESTS)
   add_subdirectory(tests)
 endif()
 
+
+# set pcv core path
+set(PCV_CORE ${PROJECT_SOURCE_DIR})
+
 # option: execute CLANG-TIDY
 # if clang-tidy is available, use it to clean up the code
 if(STATIC_ANALYSIS)
