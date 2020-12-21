@@ -67,6 +67,8 @@ void window_handler::closeAllWindows() {
 
 void window_handler::show(window &win) {
   while (!glfwWindowShouldClose(std::any_cast<GLFWwindow *>(win.nativeHandler_))) {
+    win.onNewFrame.invoke();
+
     glfwPollEvents();
     glfwSwapBuffers(std::any_cast<GLFWwindow *>(win.nativeHandler_));
   }
